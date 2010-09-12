@@ -40,3 +40,9 @@ Started GET "/" for 127.0.0.1 at 2010-09-12 12:00:43 -0700
   Processing by HomeController#index as HTML
 Rendered home/index.html.erb within layouts/application (6.8ms)
 Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-09-12 13:07:59 -0700
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.0ms)
