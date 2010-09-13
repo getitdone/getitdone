@@ -4,7 +4,7 @@
   <p>You don't have any lists.</p>
 <% else %>
   <% @lists.each do |list| %>  
-    <h2><%= list.name %></h2>
+    <h2><%= list.name %></h2><span><%= link_to 'delete', list, :confirm => "Are you sure?", :method => :delete %></span>
     <% if list.items.length == 0 %>
       <p>(There are no items in this list.)</p>
     <% else %>
