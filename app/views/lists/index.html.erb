@@ -1,19 +1,20 @@
-<h1>Index</h1>                                                              
-                                                                            
+<h1>Index</h1>
+
 <% if @lists.length == 0 %>
   <p>You don't have any lists.</p>
 <% else %>
-  <% @lists.each do |list| %>  
+  <% @lists.each do |list| %>
     <h2><%= list.name %></h2><span><%= link_to 'delete', list, :confirm => "Are you sure?", :method => :delete %></span>
     <% if list.items.length == 0 %>
-      <p>(There are no items in this list.)</p>
+      <p style="padding-left: 2em">There are no items in this list.</p>
     <% else %>
       <ul>
         <% list.items.each do |item| %>
-          <li><%= item.name %></li>
-        <% end %>                                                           
+          <li><%= item.name %> <%= link_to 'x', list_item_path(list, item), :confirm => "Are you sure?", :method => :delete %></li>
+        <% end %>
       </ul>
     <% end %>
+    <p style="padding-left: 2em"><%= link_to 'New item', new_list_item_path(list.id) %></p>
   <% end %>
 <% end %>
 <p><%= link_to 'Make a new list.', new_list_path %></p>

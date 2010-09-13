@@ -11,10 +11,8 @@ class ListsController < ApplicationController
   def create
     @list = List.new params[:list]
     if @list.save
-      puts "foo"
       redirect_to lists_path, :notice => "New list created"
     else
-      puts "didn't work"
       render :action => "new"
     end
   end

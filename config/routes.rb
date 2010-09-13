@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.resources :lists
+  map.resources :lists do |list|
+    list.resources :items
+  end
   #map.lists '/lists', :controller => 'lists', :action => 'index'
 
   # The priority is based upon order of creation:
