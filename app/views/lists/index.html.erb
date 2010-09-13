@@ -1,3 +1,19 @@
-<h1>Index</h1>
+<h1>Index</h1>                                                              
+                                                                            
+<% if @lists.length == 0 %>                                                 
+  <p>You don't have any lists. <%= link_to 'Make a new list.', new_list_path %></p>                                                                     
+<% else %>                                                                  
+  <% @lists.each do |list| %>                                               
+    <h2><%= list.name %></h2>                                               
+    <% if list.items.length == 0 %>                                         
+      <p>There are no items in this list.</p>                               
+    <% else %>                                                              
+      <ul>                                                                  
+        <% list.items.each do |item| %>                                     
+          <li><%= item.name %></li>                                         
+        <% end %>                                                           
+      </ul>                                                                 
+    <% end %>                                                               
+  <% end %>                                                                 
+<% end %>
 
-<%= link_to 'New list', new_list_path %>
