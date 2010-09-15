@@ -24,9 +24,9 @@ body
 }
 #header
 {
-  width: 780px;
+  width: 794px;
   background: #FFFFFF;
-  padding: 10px;
+  padding: 10px 3px;
   margin: 0;
 }
 #header h1
@@ -38,11 +38,7 @@ body
   display: inline;
   float: right;
   font-size: 11pt;
-  margin-top: 10px;
-  background: #AABBCC;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  padding: 2px;
+  margin: 14px 0 0 0;
 }
 #mainnav ul
 {
@@ -54,7 +50,7 @@ body
 #mainnav li
 {
   display: inline;
-  padding: 0 10px;
+  padding: 0 0 0 20px;
 }
 #mainnav a:link, a:visited
 {
@@ -69,22 +65,21 @@ body
 #page_header
 {
   position: relative;
-  margin: -6px auto;
+  margin: -8px auto;
   padding: 1em;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  -moz-border-radius-topleft: 15px;
-  -moz-border-radius-topright: 15px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  -moz-border-radius-topleft: 12px;
+  -moz-border-radius-topright: 12px;
   background: #CCCCCC;
 }
 #page_header h2
 {
   font-weight: bold;
-  margin: -4px 0 0 0;
+  margin: -4px 0 0 -2px;
 }
 #content
 {
-  font-family: 'Helvetica', Arial, serif;
   position: relative;
   background: #EEEEEE;
   margin: 0;
