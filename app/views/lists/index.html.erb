@@ -1,18 +1,23 @@
-<% if @lists.length == 0 %>
-  <p>You don't have any lists.</p>
-<% else %>
-  <% @lists.each do |list| %>
-    <h2><%= list.name %></h2><span><%= link_to 'delete', list, :confirm => "Are you sure?", :method => :delete %></span>
-    <% if list.items.length == 0 %>
-      <p style="padding-left: 2em">There are no items in this list.</p>
-    <% else %>
-      <ul>
-        <% list.items.each do |item| %>
-          <li><%= item.name %> <%= link_to '×', list_item_path(list, item), :confirm => "Are you sure?", :method => :delete %></li>
-        <% end %>
-      </ul>
+<%= render :partial => "layouts/page_header" %>
+
+<div id="content">
+  <% if @lists.length == 0 %>
+    <p>You don't have any lists.</p>
+  <% else %>
+    <% @lists.each do |list| %>
+      <h3><%= list.name %></h3><span><%= link_to 'delete', list, :confirm => "Are you sure?", :method => :delete %></span>
+      <% if list.items.length == 0 %>
+        <p style="padding-left: 2em">There are no items in this list.</p>
+      <% else %>
+        <ul>
+          <% list.items.each do |item| %>
+            <li><%= item.name %> <%= link_to '×', list_item_path(list, item), :confirm => "Are you sure?", :method => :delete %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <p style="padding-left: 2em"><%= link_to 'New item', new_list_item_path(list.id) %></p>
+      <hr/>
     <% end %>
-    <p style="padding-left: 2em"><%= link_to 'New item', new_list_item_path(list.id) %></p>
   <% end %>
-<% end %>
-<p><%= link_to 'Make a new list.', new_list_path %></p>
+  <%= link_to 'Make a new list.', new_list_path %>
+</div>

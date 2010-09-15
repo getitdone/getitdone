@@ -2,8 +2,8 @@ body
 {
   margin: 0;
   padding: 0;
-  background: #EEEEEE;
-  font-family: helvetica, arial;
+  background: #FFFFFF;
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
 .clearfix
 {
@@ -19,38 +19,34 @@ body
 }
 #container
 {
-  margin: 1em auto;
+  margin: 0 auto;
   width: 800px;
-  background: #FFFFFF;
 }
 #header
 {
-  white-space: nowrap;
+  width: 780px;
+  background: #FFFFFF;
+  padding: 10px;
+  margin: 0;
+}
+#header h1
+{
   display: inline;
-}
-#title
-{
-  margin: 0;
-  padding: .5em;
-  float: left;
-}
-#title h1
-{
-  margin: 0;
-  padding: 0;
 }
 #mainnav
 {
-  font-size: 10pt;
+  display: inline;
   float: right;
-  background: #DDDDDD;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-  margin: 1em;
+  font-size: 11pt;
+  margin-top: 10px;
+  background: #AABBCC;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
   padding: 2px;
 }
 #mainnav ul
 {
+  display: inline;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -60,7 +56,40 @@ body
   display: inline;
   padding: 0 10px;
 }
+#mainnav a:link, a:visited
+{
+  color: black;
+  text-decoration: none;
+}
+#mainnav a:hover
+{
+  color: #445566;
+  text-decoration: underline;
+}
+#page_header
+{
+  position: relative;
+  margin: -6px auto;
+  padding: 1em;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  -moz-border-radius-topleft: 15px;
+  -moz-border-radius-topright: 15px;
+  background: #CCCCCC;
+}
+#page_header h2
+{
+  font-weight: bold;
+  margin: -4px 0 0 0;
+}
 #content
 {
-  margin: 1em;
+  position: relative;
+  background: #EEEEEE;
+  margin: 0;
+  padding: 1em;
+}
+#content h2, h3
+{
+  margin-top: 0;
 }

@@ -10,20 +10,16 @@
 <body>
 <div id="container">
   <div id="header" class="clearfix">
-    <div id="title">
-      <h1>Get It Done!</h1>
-    </div>
+    <h1>Get It Done!</h1>
     <div id="mainnav">
       <ul>
-        <li>Home</li>
-        <li>Profile</li>
-        <li>Logout</li>
+        <li><a href="google.com">Home</a></li>
+        <li><a href="google.com">Profile</a></li>
+        <li><a href="/">Logout</a></li>
       </ul>
     </div>
   </div>
-  <div id="content">
-    <%= yield %>
-  </div>
+  <%= yield %>
 </div>
 </body>
 </html>
