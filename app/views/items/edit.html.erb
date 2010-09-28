@@ -1,0 +1,22 @@
+<h1>Editing <%= @item.name %> in <%= @item.list %></h1>
+
+<%= form_for [@list, @item] do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <b><%= f.label :labels, "Labels" %></b><br/>
+    <% Label.all.each do |label| %>
+        <input type='checkbox' id='item_label_ids_<%= label.id %>' name='item[label_ids][]' value='<%= label.id %>' <%= @item.labels.include?(label) ? "checked='checked'" : nil %> />
+        <%= f.label "label_ids_#{label.id}", "#{label.name}" %>
+    <% end %>
+    <%= link_to "new label", new_label_path %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

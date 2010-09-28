@@ -5,17 +5,32 @@
     <p>You don't have any lists.</p>
   <% else %>
     <% @lists.each do |list| %>
-      <h3><%= list.name %></h3><span><%= link_to 'delete', list, :confirm => "Are you sure?", :method => :delete %></span>
-      <% if list.items.length == 0 %>
-        <p style="padding-left: 2em">There are no items in this list.</p>
-      <% else %>
-        <ul>
-          <% list.items.each do |item| %>
-            <li><%= item.name %> <%= link_to '×', list_item_path(list, item), :confirm => "Are you sure?", :method => :delete %></li>
-          <% end %>
-        </ul>
-      <% end %>
-      <p style="padding-left: 2em"><%= link_to 'New item', new_list_item_path(list.id) %></p>
+      <h3><%= list.name %> <%= link_to 'delete', list, :confirm => "Are you sure?", :method => :delete %></h3>
+      <table>
+        <tr>
+          <th>Labels</th>
+          <th>Item</th>
+          <th>Edit</th>
+        </tr>
+        <% list.items.each do |item| %>
+          <tr>
+            <td class="label">
+              <ul>
+                <% item.labels.each do |label| %>
+                  <li><%= label.name %></li>
+                <% end %>
+              </ul>
+            </td>
+            <td class="name"><%= item.name %></td>
+            <td class="edit"><%= link_to 'e', edit_list_item_path(list, item) %> <%= link_to '×', list_item_path(list, item), :confirm => "Are you sure?", :method => :delete %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td></td>
+          <td><%= link_to 'new item', new_list_item_path(list) %></td>
+          <td></td>
+        </tr>
+      </table>
       <hr/>
     <% end %>
   <% end %>
