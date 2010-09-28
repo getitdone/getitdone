@@ -1,4 +1,4 @@
-<%= render :partial => "layouts/page_header" %>
+<%= render :partial => "layouts/page_header", :locals => { :header => "List Index" } %>
 
 <div id="content">
   <% if @lists.length == 0 %>
@@ -17,7 +17,7 @@
             <td class="label">
               <ul>
                 <% item.labels.each do |label| %>
-                  <li><%= label.name %></li>
+                  <li><span><%= label.name %> <%= link_to '×', "/lists/#{list.id}/items/#{item.id}/remove_label/#{label.id}" %></span></li>
                 <% end %>
               </ul>
             </td>
@@ -26,9 +26,9 @@
           </tr>
         <% end %>
         <tr>
-          <td></td>
-          <td><%= link_to 'new item', new_list_item_path(list) %></td>
-          <td></td>
+          <td class="label"></td>
+          <td class="name"><%= link_to 'new item', new_list_item_path(list) %></td>
+          <td class="edit"></td>
         </tr>
       </table>
       <hr/>

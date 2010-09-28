@@ -1,7 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.connect '/lists/:list_id/items/:id/remove_label/:label_id', :controller => 'items', :action => 'remove_label'
   
   map.resources :lists do |list|
-    list.resources :items
+    list.resources :items do |label|
+      label.resources :labels
+    end
   end
 
   map.resources :labels
@@ -56,7 +60,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "home#index"
+  root :to => "lists#index"
 
   # See how all your routes lay out with "rake routes"
 
