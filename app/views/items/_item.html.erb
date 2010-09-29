@@ -1,0 +1,11 @@
+<tr>
+  <td class="label">
+    <ul>
+      <% item.labels.each do |label| %>
+        <li><span style="background: #<%= label.color %>"><%= label.name %> <%= link_to '×', "/lists/#{list.id}/items/#{item.id}/remove_label/#{label.id}" %></span></li>
+      <% end %>
+    </ul>
+  </td>
+  <td class="name"><%= item.name %></td>
+  <td class="edit"><%= link_to 'e', edit_list_item_path(list, item) %> <%= link_to '×', list_item_path(list, item), :confirm => "Are you sure?", :method => :delete %></td>
+</tr>

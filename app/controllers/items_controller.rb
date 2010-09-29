@@ -9,7 +9,13 @@ class ItemsController < ApplicationController
   def create
     @list = List.find params[:list_id]
     @item = @list.items.create params[:item]
-    redirect_to lists_path, :notice => "New item created"
+
+    respond_to do |format|
+      if @item.save
+        format.js
+        format.html { redirect_to lists_path }
+      end
+    end
   end
 
   def edit

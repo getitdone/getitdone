@@ -106,35 +106,36 @@ body
   vertical-align: top;
   line-height: 20px;
 }
-#content table td.label
+#content table th.label
 {
   width: 150px;
+}
+#content table th.item
+{
+  width: 500px;
+}
+#content table th.edit
+{
+  width: 50px;
 }
 #content table td.label ul
 {
   list-style-type: none;
-  margin: 0 0 -10px 0;
+  margin: -1px 0 -8px 0;
   padding: 0;
 }
 #content table td.label li
 {
-  margin: 0 0 10px 0;
+  margin: 0 4px 6px 0;
 }
 #content table td.label li span
 {
+  font-family: Tahoma, Geneva, sans-serif;
   background: #D7E3EA;
-  padding: 2px 4px;
-  white-space: nowrap;
+  font-size: 8pt;
+  padding: 4px 6px;
   border-radius: 4px;
   -moz-border-radius: 4px;
-}
-#content table td.name
-{
-  width: 500px;
-}
-#content table td.edit
-{
-  width: 50px;
 }
 #content
 {

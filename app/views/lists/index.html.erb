@@ -6,28 +6,27 @@
   <% else %>
     <% @lists.each do |list| %>
       <h3><%= list.name %> <%= link_to 'delete', list, :confirm => "Are you sure?", :method => :delete %></h3>
-      <table>
+      <table id="item_list">
         <tr>
-          <th>Labels</th>
-          <th>Item</th>
-          <th>Edit</th>
+          <th class="label">Labels</th>
+          <th class="name">Item</th>
+          <th class="edit">Edit</th>
         </tr>
-        <% list.items.each do |item| %>
-          <tr>
+        <%= render :partial => "items/item", :collection => list.items, :locals => { :list => list } %>
+        <tr id="new_item_row">
+          <%= form_for [list, Item.new], :remote => true do |f| %>
             <td class="label">
-              <ul>
-                <% item.labels.each do |label| %>
-                  <li><span><%= label.name %> <%= link_to '×', "/lists/#{list.id}/items/#{item.id}/remove_label/#{label.id}" %></span></li>
-                <% end %>
-              </ul>
+              <% Label.all.each do |label| %>
+                <%= check_box_tag "item[label_ids][]", label.id, @item.labels.include?(label) %>
+                <%= f.label "label_ids_#{label.id}", "#{label.name}" %>
+              <% end %>
+              <%= link_to "new label", new_label_path %>
             </td>
-            <td class="name"><%= item.name %></td>
-            <td class="edit"><%= link_to 'e', edit_list_item_path(list, item) %> <%= link_to '×', list_item_path(list, item), :confirm => "Are you sure?", :method => :delete %></td>
-          </tr>
-        <% end %>
-        <tr>
-          <td class="label"></td>
-          <td class="name"><%= link_to 'new item', new_list_item_path(list) %></td>
+            <td class="name">
+              <%= f.text_field :name %>
+              <%= f.submit %>
+            </td>
+          <% end %>
           <td class="edit"></td>
         </tr>
       </table>

@@ -1,0 +1,2 @@
+$('#new_item_row').before("<%= escape_javascript(render :partial => "item", :locals => { :item => @item, :list => @list }) %>");
+$('#item_name').attr('value', '').focus();
