@@ -16,14 +16,21 @@
         <tr id="new_item_row">
           <%= form_for [list, Item.new], :remote => true do |f| %>
             <td class="label">
+              <ul>
               <% Label.all.each do |label| %>
-                <%= check_box_tag "item[label_ids][]", label.id, @item.labels.include?(label) %>
-                <%= f.label "label_ids_#{label.id}", "#{label.name}" %>
+                <li class="label-<%= label.name %>">
+                  <%= check_box_tag "item[label_ids][]", label.id, @item.labels.include?(label), { :id => "item_label_ids_#{label.id}", :class => "new_item_label" } %>
+                  <span style="background: #<%= label.color %>"><%= f.label "label_ids_#{label.id}", "#{label.name}" %></span>  <%= link_to 'delete', label_path(label), :method => :delete, :remote => true %>
+                </li>
               <% end %>
-              <%= link_to "new label", new_label_path %>
+                <li>
+                  <%= link_to "+ new label", new_label_path %>
+                </li>
+              </ul>
             </td>
             <td class="name">
-              <%= f.text_field :name %>
+              <%= f.label :name, "+ " %>
+              <%= f.text_field :name, :size => 80 %>
               <%= f.submit %>
             </td>
           <% end %>

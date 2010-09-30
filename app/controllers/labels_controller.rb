@@ -11,13 +11,18 @@ class LabelsController < ApplicationController
     end
   end
 
-  def destroy
-    @label = Label.find params[:id]
-    @label.destroy
-  end
-
   def delete
     @item = Item.find params[:item_id]
     @item.labels.delete params[:id]
+  end
+  
+  def destroy
+    @label = Label.find params[:id]
+    @label.destroy
+    
+    respond_to do |format|
+      format.js
+      format.html { redirect_to lists_path }
+    end
   end
 end

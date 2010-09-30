@@ -92,6 +92,7 @@ body
 {
   border-spacing: 0 2px;
   width: 100%;
+  table-layout: fixed;
 }
 #content table th
 {
@@ -110,9 +111,13 @@ body
 {
   width: 150px;
 }
-#content table th.item
+#content table th.name
 {
   width: 500px;
+}
+#content table td.name
+{
+  word-wrap: break-word;
 }
 #content table th.edit
 {
@@ -120,22 +125,37 @@ body
 }
 #content table td.label ul
 {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 8pt;
   list-style-type: none;
-  margin: -1px 0 -8px 0;
+  margin: 0 0 -6px 0;
   padding: 0;
 }
 #content table td.label li
 {
-  margin: 0 4px 6px 0;
+  margin: 0 0 6px 0;
+  display: inline-block;
 }
 #content table td.label li span
 {
-  font-family: Tahoma, Geneva, sans-serif;
+  white-space: nowrap;
   background: #D7E3EA;
-  font-size: 8pt;
   padding: 4px 6px;
+  margin: 0 4px 6px 0;
   border-radius: 4px;
   -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  box-shadow: 1px 1px 1px #666;
+  -moz-box-shadow: 1px 1px 1px #666;
+  -webkit-box-shadow: 1px 1px 1px #666;
+}
+#content table tr#new_item_row td.label ul
+{
+  margin: -1px 0 -8px -4px;
+}
+#content table tr#new_item_row td.label li
+{
+  display: block;
 }
 #content
 {
