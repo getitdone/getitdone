@@ -1,8 +1,6 @@
 .idea
-.idea/**
+.idea/*
 log/*
 .DS_Store
 db/schema.rb
 *.sqlite3
-*.pot
-

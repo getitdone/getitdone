@@ -14,6 +14,8 @@ class ItemsController < ApplicationController
       if @item.save
         format.js
         format.html { redirect_to lists_path }
+      else
+        redirect_to lists_path
       end
     end
   end
@@ -33,10 +35,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @list = List.find params[:list_id]
     @item = Item.find params[:id]
     @item.destroy
 
-    redirect_to lists_path, :notice => "Item destroyed"
+    respond_to do |format|
+      format.js
+      format.html { redirect_to lists_path }
+    end
   end
 
   def remove_label

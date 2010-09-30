@@ -94,6 +94,10 @@ body
   width: 100%;
   table-layout: fixed;
 }
+#content table tr
+{
+  width: 100%;
+}
 #content table th
 {
   padding: 8px 8px;
@@ -149,11 +153,7 @@ body
   -moz-box-shadow: 1px 1px 1px #666;
   -webkit-box-shadow: 1px 1px 1px #666;
 }
-#content table tr#new_item_row td.label ul
-{
-  margin: -1px 0 -8px -4px;
-}
-#content table tr#new_item_row td.label li
+#content table tr.new_item_row td.label li
 {
   display: block;
 }
