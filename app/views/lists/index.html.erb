@@ -13,7 +13,7 @@
           <th class="edit">Edit</th>
         </tr>
         <%= render :partial => "items/item", :collection => list.items, :locals => { :list => list } %>
-        <tr id="new_item_row">
+        <tr id="new_item_row_<%= list.id %>">
           <%= form_for [list, Item.new], :remote => true do |f| %>
             <td class="label">
               <ul>
@@ -30,7 +30,7 @@
             </td>
             <td class="name">
               <%= f.label :name, "+ " %>
-              <%= f.text_field :name, :size => 80 %>
+              <%= f.text_field :name, :size => 80, :id => "item_name_#{list.id}"  %>
               <%= f.submit %>
             </td>
           <% end %>
