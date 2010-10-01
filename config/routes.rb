@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.connect '/lists/:list_id/items/:id/remove_label/:label_id', :controller => 'items', :action => 'remove_label'
+  map.connect "/lists/:list_id/items/:id/remove_label/:label_id", :controller => 'items', :action => 'remove_label'
+  map.connect "/lists/:list_id/items/:id/start_task/", :controller => 'items', :action => 'start_task'
   
   map.resources :lists do |list|
     list.resources :items do |label|

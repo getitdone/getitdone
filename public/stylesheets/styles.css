@@ -97,6 +97,11 @@ body
 #content table tr
 {
   width: 100%;
+  background: white;
+}
+#content table tr.item-started
+{
+  background: #FAEEAF;
 }
 #content table th
 {
@@ -107,7 +112,6 @@ body
 #content table td
 {
   padding: 8px 8px;
-  background: #ffffff;
   vertical-align: top;
   line-height: 20px;
 }

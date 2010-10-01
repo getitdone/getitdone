@@ -45,6 +45,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def start_task
+    @list = List.find params[:list_id]
+    @item = Item.find params[:id]
+    @item.status = 1
+
+    respond_to do |format|
+      if @item.save
+        format.js
+        format.html { redirect_to lists_path }
+      end
+    end
+  end
+
   def remove_label
     @item = Item.find params[:id]
     @item.labels.delete(Label.find(params[:label_id]))
