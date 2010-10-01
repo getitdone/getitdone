@@ -7,8 +7,8 @@
     <ul>
       <% Label.all.each do |label| %>
         <li class="label-<%= label.id %>">
-          <%= check_box_tag "item[label_ids][]", label.id, @item.labels.include?(label), { :id => "item_label_ids_#{label.id}", :class => "new_item_label" } %>
-          <span style="background: #<%= label.color %>"><%= f.label "label_ids_#{label.id}", "#{label.name}" %></span>  <%= link_to('delete', label_path(label), :method => :delete, :remote => true) if defined?(delete_label) %>
+          <%= check_box_tag "item[label_ids][]", label.id, @item.labels.include?(label), { :id => "item_label_ids_#{label.id}_#{list.id}", :class => "new_item_label" } %>
+          <span style="background: #<%= label.color %>"><%= f.label "label_ids_#{label.id}_#{list.id}", "#{label.name}" %></span>  <%= link_to('delete', label_path(label), :method => :delete, :remote => true) if defined?(delete_label) %>
         </li>
       <% end %>
       <li>
