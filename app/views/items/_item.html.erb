@@ -7,5 +7,5 @@
     </ul>
   </td>
   <td class="name"><%= auto_link h item.name %> <b id="<%= "list_#{list.id}_item_#{item.id}_status" %>"><%= Item::STATUSES[item.status] %></b></td>
-  <td class="edit"><%= link_to 'e', edit_list_item_path(list, item) %> <%= link_to '✓', "/lists/#{list.id}/items/#{item.id}/start_task", :remote => true %> <%= link_to '×', list_item_path(list, item), :method => :delete, :remote => true %></td>
+  <td class="edit"><%= link_to 'e', edit_list_item_path(list, item), :remote => true %> <%= link_to '▸', "/lists/#{list.id}/items/#{item.id}/start_task", :remote => true %> <%= link_to '×', list_item_path(list, item), :method => :delete, :remote => true %></td>
 </tr>

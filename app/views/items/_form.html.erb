@@ -1,20 +1,20 @@
-<%= form_for [@list, @item] do |f| %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <b><%= f.label :labels, "Labels" %></b><br/>
-    <% Label.all.each do |label| %>
-      <%= check_box_tag "item[label_ids][]", label.id, @item.labels.include?(label) %>
-      <%= f.label "label_ids_#{label.id}", "#{label.name}" %>
-    <% end %>
-    <%= link_to "new label", new_label_path %>
-  </div>
-
-  <div class="actions">
+<td class="label"></td>
+<td class="name">
+  <%= form_for [list, item], :remote => true do |f| %>
+    <%= f.label :name, "+ " %>
+    <%= f.text_field :name, :size => 48, :id => "item_name_#{list.id}" %>
     <%= f.submit %>
-  </div>
-<% end %>
+    <ul>
+      <% Label.all.each do |label| %>
+        <li class="label-<%= label.id %>">
+          <%= check_box_tag "item[label_ids][]", label.id, @item.labels.include?(label), { :id => "item_label_ids_#{label.id}", :class => "new_item_label" } %>
+          <span style="background: #<%= label.color %>"><%= f.label "label_ids_#{label.id}", "#{label.name}" %></span>  <%= link_to('delete', label_path(label), :method => :delete, :remote => true) if defined?(delete_label) %>
+        </li>
+      <% end %>
+      <li>
+        <%= link_to "+ new label", new_label_path %>
+      </li>
+  <% end %>
+  </ul>
+</td>
+<td class="edit"></td>

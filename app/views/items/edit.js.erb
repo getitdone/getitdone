@@ -1,0 +1,2 @@
+$('#list_<%= @list.id %>_item_<%= @item.id %>').after("<tr id=\"<%= "list_#{@list.id}_item_#{@item.id}_edit" %>\"><%= escape_javascript(render :partial => "form", :locals => { :item => @item, :list => @list }) %></tr>");
+$('#list_<%= @list.id %>_item_<%= @item.id %>').remove();
