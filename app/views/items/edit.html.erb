@@ -1,7 +1,7 @@
 <%= render :partial => "layouts/page_header", :locals => { :header => @item.name } %>
 
 <div id="content">
-  <h1>Editing <%= @item.name %> in <%= @item.list %></h1>
+  <h1>Editing <%= @item.name %> in <%= @item.list.name %></h1>
 
   <%= render 'form' %>
 </div>
