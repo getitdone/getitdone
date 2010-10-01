@@ -29,8 +29,14 @@ class ItemsController < ApplicationController
     @list = List.find params[:list_id]
     @item = Item.find params[:id]
     params[:item][:label_ids] ||= []
-    if @item.update_attributes params[:item]
-      redirect_to lists_path, :notice => "Item updated"
+
+    respond_to do |format|
+      if @item.update_attributes params[:item]
+        format.js
+        format.html { redirect_to lists_path, :notice => "Item updated" }
+      else
+        redirect_to lists_path
+      end
     end
   end
 
@@ -42,6 +48,19 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.js
       format.html { redirect_to lists_path }
+    end
+  end
+
+  def start_task
+    @list = List.find params[:list_id]
+    @item = Item.find params[:id]
+    @item.status = 1
+
+    respond_to do |format|
+      if @item.save
+        format.js
+        format.html { redirect_to lists_path }
+      end
     end
   end
 

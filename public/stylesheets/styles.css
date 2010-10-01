@@ -97,6 +97,11 @@ body
 #content table tr
 {
   width: 100%;
+  background: white;
+}
+#content table tr.item-started
+{
+  background: #FAEEAF;
 }
 #content table th
 {
@@ -107,7 +112,6 @@ body
 #content table td
 {
   padding: 8px 8px;
-  background: #ffffff;
   vertical-align: top;
   line-height: 20px;
 }
@@ -127,7 +131,7 @@ body
 {
   width: 60px;
 }
-#content table td.label ul
+#content table td ul
 {
   font-family: Tahoma, Geneva, sans-serif;
   font-size: 8pt;
@@ -135,15 +139,14 @@ body
   margin: 0 0 -6px 0;
   padding: 0;
 }
-#content table td.label li
+#content table td li
 {
   margin: 0 0 6px 0;
   display: inline-block;
 }
-#content table td.label li span
+#content table td li span
 {
   white-space: nowrap;
-  background: #D7E3EA;
   padding: 4px 6px;
   margin: 0 4px 6px 0;
   border-radius: 4px;
@@ -153,7 +156,7 @@ body
   -moz-box-shadow: 1px 1px 1px #666;
   -webkit-box-shadow: 1px 1px 1px #666;
 }
-#content table tr.new_item_row td.label li
+#content table tr.new_item_row td.name li
 {
   display: block;
 }
