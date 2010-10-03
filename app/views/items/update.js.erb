@@ -1,2 +1,2 @@
-$('#list_<%= @list.id %>_item_<%= @item.id %>_edit').after("<%= escape_javascript(render :partial => "item", :locals => { :item => @item, :list => @list }) %>");
-$('#list_<%= @list.id %>_item_<%= @item.id %>_edit').remove();
+$('#item_<%= @item.id %>_edit').after("<%= escape_javascript(render :partial => "item", :locals => { :item => @item, :list => @list }) %>");
+$('#item_<%= @item.id %>_edit').remove();

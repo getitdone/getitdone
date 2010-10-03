@@ -8,6 +8,8 @@ class LabelsController < ApplicationController
     @label = Label.new params[:label]
     if @label.save
       redirect_to lists_path
+    else
+      redirect_to new_label_path
     end
   end
 

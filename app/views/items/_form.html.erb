@@ -1,14 +1,13 @@
 <td class="label"></td>
 <td class="name">
   <%= form_for [list, item], :remote => true do |f| %>
-    <%= f.label :name, "+ " %>
-    <%= f.text_field :name, :size => 48, :id => "item_name_#{list.id}" %>
+    <%= f.text_field :name, :size => 48, :id => defined?(new) ? "new_item_name" : "item_#{item.id}_name" %>
     <%= f.submit %>
     <ul>
       <% Label.all.each do |label| %>
         <li class="label-<%= label.id %>">
-          <%= check_box_tag "item[label_ids][]", label.id, @item.labels.include?(label), { :id => "item_label_ids_#{label.id}_#{list.id}", :class => "new_item_label" } %>
-          <span style="background: #<%= label.color %>"><%= f.label "label_ids_#{label.id}_#{list.id}", "#{label.name}" %></span>  <%= link_to('delete', label_path(label), :method => :delete, :remote => true) if defined?(delete_label) %>
+          <%= check_box_tag "item[label_ids][]", label.id, item.labels.include?(label), { :id => defined?(new) ? "item_label_#{label.id}" : "item_#{item.id}_label_#{label.id}", :class => defined?(new) ? "new-item-label" : "" } %>
+          <span style="background: #<%= label.color %>"><%= f.label (defined?(new) ? "label_#{label.id}" : "#{item.id}_label_#{label.id}"), "#{label.name}" %></span>  <%= link_to('delete', label_path(label), :method => :delete, :remote => true) if defined?(new) %>
         </li>
       <% end %>
       <li>

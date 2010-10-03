@@ -2,7 +2,7 @@ class CreateLabels < ActiveRecord::Migration
   def self.up
     create_table :labels do |t|
       t.string :name
-      t.string :color,  :limit => 10, :default => "D7E3EA"
+      t.string :color,  :limit => 6, :default => "D7E3EA"
       t.references :item
 
       t.timestamps

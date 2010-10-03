@@ -2,9 +2,14 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
-    @item = Item.new
   end
 
+  def show
+    @list = List.find params[:id]
+    @items = @list.items.select { |i| i.status != 2 }
+    @finished = @list.items.select { |i| i.status == 2 }
+  end
+  
   def new
     @list = List.new
   end

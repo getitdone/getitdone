@@ -4,21 +4,14 @@
   <% if @lists.length == 0 %>
     <p>You don't have any lists.</p>
   <% else %>
+    <ul>
     <% @lists.each do |list| %>
-      <h3><%= list.name %> <%= link_to 'delete', list, :confirm => "Are you sure?", :method => :delete %></h3>
-      <table id="item_list">
-        <tr>
-          <th class="label">Labels</th>
-          <th class="name">Item</th>
-          <th class="edit">Edit</th>
-        </tr>
-        <%= render :partial => "items/item", :collection => list.items, :locals => { :list => list } %>
-        <tr id="new_item_row_<%= list.id %>" class="new_item_row">
-          <%= render :partial => "items/form", :locals => { :list => list, :item => Item.new, :delete_label => true } %>
-        </tr>
-      </table>
+      <ul>
+        <li><%= link_to list.name, list_path(list) %></li>
+      </ul>
       <hr/>
     <% end %>
+    </ul>
   <% end %>
   <%= link_to 'Make a new list.', new_list_path %>
 </div>

@@ -1,0 +1,16 @@
+<%= render :partial => "layouts/page_header", :locals => { :header => @list.name } %>
+
+<div id="content">
+  <table id="item_list">
+    <tr>
+      <th class="label">Labels</th>
+      <th class="name">Item</th>
+      <th class="edit">Edit</th>
+    </tr>
+    <tr id="new_item_row" class="new-item-row">
+      <%= render :partial => "items/form", :locals => { :list => @list, :item => Item.new, :new => true } %>
+    </tr>
+    <%= render :partial => "items/item", :collection => @items.reverse, :locals => { :list => @list } %>
+  </table>
+  <hr/>
+</div>
